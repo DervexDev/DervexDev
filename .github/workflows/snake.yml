@@ -1,4 +1,4 @@
-name: Contribution Snake
+name: contribution-snake-build
 
 on:
   schedule:
@@ -21,8 +21,8 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/contribution-grid-snake.svg
-            dist/contribution-grid-snake-dark.svg?palette=github-dark
+            dist/contribution-snake.svg
+            dist/contribution-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
