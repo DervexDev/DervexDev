@@ -1,0 +1,2 @@
+- name: Contribution Snake
+  uses: Platane/snk@v3.0.0
