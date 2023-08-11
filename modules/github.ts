@@ -49,7 +49,13 @@ export async function fetchContributions(mobile?: boolean): Promise<[Array<numbe
 		})
 	})
 
-	const {data: {user: {contributionsCollection: {contributionCalendar: {_, weeks}}}}} = await response.json()
+	const json = await response.json()
+
+	if (!json || json.message) {
+		return [cache.data, cache.max]
+	}
+
+	const {data: {user: {contributionsCollection: {contributionCalendar: {_, weeks}}}}} = json
 
 	Object.keys(weeks).forEach((i) => {
 		const week = weeks[i].contributionDays
