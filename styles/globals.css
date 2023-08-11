@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: white;
+		background: black;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		color: black;
+		background: white;
+	}
+}
+
+@font-face {
+	font-family: 'Blanka';
+	src: url('../public/blanka.otf');
+}
+
+main::-webkit-scrollbar {
+	display: none;
+}
+  
+main {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
