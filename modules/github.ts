@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const TOKEN = process.env.GITHUB_TOKEN || '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'
+const TOKEN = process.env.GITHUB_TOKEN
 const INTENSITY = 0.75
 const QUERY = `
 query($userName:String!) {
