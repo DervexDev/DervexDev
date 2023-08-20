@@ -77,7 +77,7 @@ export default function Home() {
 	function graphs(skills: Array<Skill>) {
 		return skills.map((skill, index) => {
 			return (
-				<Container className='h-[78px]' borders={index == 0 ? '' :	 't'}>
+				<Container key={index} className='h-[78px]' borders={index == 0 ? '' :	 't'}>
 					<Container className='h-1/2 flex flex-row' borders='b'>
 						<Container className='min-w-[37px] h-full text-2xl flex items-center justify-center' borders='r'>
 							{skill.icon}
@@ -90,8 +90,8 @@ export default function Home() {
 
 					<div className='h-1/2 flex flex-row'>
 						<Container className='w-full h-full' borders='r'>
-							<div className='h-full bg-black dark:bg-white' style={{width: `${skill.level}%`}}>
-
+							<div className='h-full' style={{width: `${skill.level}%`}}>
+								<div className='w-full h-full animate-progress bg-black dark:bg-white'/>
 							</div>
 						</Container>
 
@@ -113,10 +113,10 @@ export default function Home() {
 
 					<p className='px-4 py-2 text-justify'>
 						My real name is Dawid Radziejewski, I’m {new Date().getFullYear() - 2005} years old and live in Poland, at least for now.
-						I do programming on daily basis as it’s my favorite hobby and current job – mostly game development.
+						I do programming on daily basis as it’s my current job – mostly game development.
 						I also really enjoy working on open-source software that you can explore on this site.
-						My other big hobby is music production, more exactly bass house / electronic.
-						Soon you might hear my songs on the internet.
+						My other hobby is music production, more exactly bass house / electronic.
+						Soon you might hear my tracks on the internet.
 					</p>
 
 					<p className='px-4 py-2 text-justify'>

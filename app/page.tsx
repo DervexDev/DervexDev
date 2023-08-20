@@ -24,7 +24,7 @@ export default function Home() {
 				}}/>
 			</div>
 
-			<p className='text-[6vw] sm:text-[3vw] sm:-mt-[1vw] font-bold sm:font-normal'>and I'm a</p>
+			<p className='text-[6vw] sm:text-[3vw] sm:-mt-[1vw] font-bold sm:font-normal'>and I’m a</p>
 
 			<p className='w-[95%] sm:w-[65%] pb-[30px] sm:pb-[20px]'>
 				Software engineer, UI/UX & graphic designer, 3D artis, music producer based in Poland with

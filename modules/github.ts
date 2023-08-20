@@ -1,6 +1,8 @@
-import fetch from 'node-fetch'
+import { getDummyData } from './dummyData'
+import { clamp } from './utils'
 
 const TOKEN = process.env.GITHUB_TOKEN
+const MOBILE_LENGTH = 200
 const INTENSITY = 0.75
 const QUERY = `
 query($userName:String!) {
@@ -21,23 +23,31 @@ const VARIABLES = `
 	"userName": "DervexHero"
 }`
 
-interface Cache {
-	lastFetched: number
-	data: Array<number>
-	max: number
-}
-
-let cache: Cache = {
-	lastFetched: Date.now(),
-	data: [],
-	max: 0
-}
-
-export async function fetchContributions(mobile?: boolean): Promise<[Array<number>, number]> {
-	if (Math.round(Date.now() / 1000) - cache.lastFetched < 3600 && cache.data.length != 0) {
-		return [cache.data, cache.max]
+function getData(mobile?: boolean, data?: Array<number>): Array<number> {
+	if (data) {
+		if (!mobile) {
+			if (data.length != 0) {
+				return data
+			} else {
+				return getDummyData()
+			}
+		} else {
+			if (data.length != 0) {
+				return data.slice(0, MOBILE_LENGTH)
+			} else {
+				return getDummyData(MOBILE_LENGTH)
+			}
+		}
+	} else {
+		if (!mobile) {
+			return getDummyData()
+		} else {
+			return getDummyData(MOBILE_LENGTH)
+		}
 	}
+}
 
+export async function fetchContributions(mobile?: boolean): Promise<Array<number>> {
 	const response: any = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		headers: {
@@ -46,16 +56,27 @@ export async function fetchContributions(mobile?: boolean): Promise<[Array<numbe
 		body: JSON.stringify({
 			query: QUERY,
 			variables: VARIABLES
-		})
+		}),
+		next: {
+			revalidate: 300
+		}
+	}).catch(() => {
+		return null
 	})
+
+	if (!response) {
+		return getData(mobile)
+	}
 
 	const json = await response.json()
 
 	if (!json || json.message) {
-		return [cache.data, cache.max]
+		return getData(mobile)
 	}
 
 	const {data: {user: {contributionsCollection: {contributionCalendar: {_, weeks}}}}} = json
+	const data: Array<number> = []
+	let max = 0
 
 	Object.keys(weeks).forEach((i) => {
 		const week = weeks[i].contributionDays
@@ -63,29 +84,40 @@ export async function fetchContributions(mobile?: boolean): Promise<[Array<numbe
 		Object.keys(week).forEach((j) => {
 			const day = week[j].contributionCount
 
-			cache.data.push(day)
+			data.push(day)
 
-			if (cache.max < day) {
-				cache.max = day
+			if (max < day) {
+				max = day
 			}
 		})
 	})
 
-	cache.data.reverse()
-	cache.max *= INTENSITY
-	cache.lastFetched = Date.now()
+	data.reverse()
+	max *= INTENSITY
 
-	if (!mobile) {
-		return [cache.data, cache.max]
-	} else {
-		return [cache.data.slice(0, 200), cache.max]
-	}
+	data.forEach((value, index) => {
+		data[index] = clamp(value / max, 0, 1)
+	})
+
+	return getData(mobile, data)
 }
 
-export function getContributions(mobile?: boolean): [Array<number>, number] {
-	if (mobile) {
-		return [cache.data.slice(0, 200), cache.max]
-	} else {
-		return [cache.data, cache.max]
+export function getContributions(mobile?: boolean): Array<number> {
+	const element = document.getElementById('githubContributions')
+	const data: Array<number> = []
+	let max = 0
+
+	if (element) {
+		for (const child of element.children as HTMLCollectionOf<HTMLElement>) {
+			const opacity = Number(child.style.opacity)
+
+			data.push(opacity)
+
+			if (max < opacity) {
+				max = opacity
+			}
+		}
 	}
+
+	return getData(mobile, data)
 }

@@ -8,6 +8,21 @@ module.exports = {
   theme: {
     fontFamily: {
       'blanka': ['Blanka']
+    },
+    extend: {
+      keyframes: {
+        'progress': {
+          '0%': {
+            'max-width': '0%'
+          },
+          '100%': {
+            'max-width': '100%'
+          }
+        }
+      },
+      animation: {
+        'progress': 'progress 1.5s ease-out'
+      }
     }
   },
   future: {

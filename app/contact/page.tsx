@@ -19,7 +19,7 @@ interface Contact {
 const contacts: Array<Contact> = [
 	{
 		name: 'Discord',
-		desc: 'For general pruposes add me on discord',
+		desc: 'For general purposes add me on discord',
 		link: 'https://discord.com/invite/tvGMCbG9',
 		icon: <SiDiscord/>
 	},

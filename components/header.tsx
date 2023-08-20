@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useCollapse } from 'react-collapsed'
 import { clamp, countKeys } from '@/modules/utils'
 import { getContributions } from '@/modules/github'
+import { dervex } from '@/modules/ascii'
 import HeaderButton, { HeaderButtonType } from './headerButton'
 import Container from './container'
 import Button from './button'
@@ -118,7 +119,7 @@ export default function Header () {
 				</Container>
 			)
 		} else {
-			const [contributions, max] = getContributions()
+			const contributions = getContributions(true)
 
 			return (
 				<Container className='absolute z-10 w-full duration-300' borders='lrb' style={{opacity: isExpanded ? 100 : 0}}>
@@ -133,7 +134,7 @@ export default function Header () {
 
 								<div className='h-[76px] grid grid-rows-5 grid-flow-col content-start overflow-hidden bg-white dark:bg-black'>
 									{contributions.map((contribution, index) => {
-										return <div key={index} className='bg-black w-[15.2px] h-full dark:bg-white aspect-square' style={{opacity: contribution / max}}/>
+										return <div key={index} className='bg-black w-[15.2px] h-full dark:bg-white aspect-square' style={{opacity: contribution}}/>
 									})}
 								</div>
 							</div>
@@ -170,6 +171,11 @@ export default function Header () {
 			window.removeEventListener('resize', () => updateHeaderSize())
 		}
 	}, [])
+
+	if (typeof window !== 'undefined') {
+		console.clear()
+		console.log(dervex)
+	}
 
 	return (
 		<header>
