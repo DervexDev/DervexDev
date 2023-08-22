@@ -33,7 +33,7 @@ const contacts: Array<Contact> = [
 	{
 		name: 'Mail',
 		desc: 'For urgent questions contact with me by e-mail',
-		link: 'mailto:dervex@icloud.com',
+		link: 'mailto:contact@dervex.dev',
 		icon: <HiMail/>
 	},
 	{
