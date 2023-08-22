@@ -6,9 +6,9 @@ import Button from '@/components/button'
 export default function Home() {
 	return (
 		<div className='w-[90%] sm:w-[80%]'>
-			<p className='text-[6vw] sm:text-[3vw] -mb-[8px] sm:-mb-0 sm:absolute font-bold sm:font-normal'>Hey, my name is</p>
+			<p className='text-[20px] sm:text-[30px] lg:text-[40px] xl:text-[50px] font-bold sm:font-normal'>Hey, my name is</p>
 
-			<div className='font-blanka tracking-wider text-[12vw] sm:text-[10vw] sm:pt-[20px]'>
+			<div className='h-[70px] sm:h-[110px] lg:h-[160px] xl:h-[220px] text-[45px] sm:text-[70px] lg:text-[100px] xl:text-[140px] font-blanka tracking-wider'>
 				<Typewriter options={{
 					cursor: '_',
 					loop: true
@@ -24,9 +24,9 @@ export default function Home() {
 				}}/>
 			</div>
 
-			<p className='text-[6vw] sm:text-[3vw] sm:-mt-[1vw] font-bold sm:font-normal'>and I’m a</p>
+			<p className='text-[20px] sm:text-[30px] lg:text-[40px] xl:text-[50px] font-bold sm:font-normal'>and I’m a</p>
 
-			<p className='w-[95%] sm:w-[65%] pb-[30px] sm:pb-[20px]'>
+			<p className='w-[95%] sm:w-[85%] lg:w-[75%] xl:w-[65%] pb-[20px]'>
 				Software engineer, UI/UX & graphic designer, 3D artist, music producer based in Poland with
 				experience in game development, tool, web app programming and all major Adobe products.
 			</p>
