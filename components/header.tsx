@@ -35,7 +35,7 @@ const HEADER_BUTTONS: Array<HeaderButtonType> = [
 		icon: 'twitter'
 	},
 	{
-		link: 'https://www.youtube.com/@DervexHero',
+		link: 'https://youtube.com/@DervexHero',
 		icon: 'youtube'
 	},
 	{
@@ -68,9 +68,9 @@ export default function Header () {
 				button: <Button className='min-w-[76px] border-l-2 flex-col' borders='l' callback={() => {
 					setIsExpanded(!isExpanded)
 				}}>
-					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block transition-all duration-200 ease-out w-[25px] h-[2px] ${isExpanded ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}/>
-					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block transition-all duration-100 ease-out w-[25px] h-[2px] my-0.5 ${isExpanded ? 'opacity-0' : 'opacity-100'}`}/>
-					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block transition-all duration-200 ease-out w-[25px] h-[2px] ${isExpanded ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}/>
+					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block duration-200 transition-transform ease-out w-[25px] h-[2px] ${isExpanded ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}/>
+					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block duration-100 transition-opacity ease-out w-[25px] h-[2px] my-0.5 ${isExpanded ? 'opacity-0' : 'opacity-100'}`}/>
+					<span className={`bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black block duration-200 transition-transform ease-out w-[25px] h-[2px] ${isExpanded ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}/>
 				</Button>
 			})
 		} else if (isExpanded) {
@@ -84,7 +84,7 @@ export default function Header () {
 		}
 		
 		return (
-			<Container className='h-[80px] flex flex-row'>
+			<Container className='relative w-full h-[80px] z-20 flex flex-row'>
 				{buttons.map((button, index) => {
 					return <HeaderButton key={index} button={button} borders={index == 0 ? '' : 'l'}/>
 				})}
@@ -110,7 +110,7 @@ export default function Header () {
 			return
 		} else if (textButtons.length == 0) {
 			return (
-				<Container className='absolute right-0 z-10 w-[78px] duration-300' borders='lrb' style={{opacity: isExpanded ? 100 : 0}}>
+				<Container className='absolute right-0 z-10 w-[78px] duration-300' borders='lrb' style={{marginTop: isExpanded ? 0 : -2}}>
 					<div {...getCollapseProps()}>
 						{buttons.map((button, index) => {
 							return <HeaderButton key={index} button={button} borders={index == 0 ? '' : 't'} compact={true}/>
@@ -122,7 +122,7 @@ export default function Header () {
 			const contributions = getContributions(true)
 
 			return (
-				<Container className='absolute z-10 w-full duration-300' borders='lrb' style={{opacity: isExpanded ? 100 : 0}}>
+				<Container className='absolute z-10 w-full duration-300' borders='lrb' style={{marginTop: isExpanded ? 0 : -2}}>
 					<div {...getCollapseProps()}>
 						<div className='flex flex-row'>
 							<div className='w-[calc(100%-76px)] flex flex-col'>

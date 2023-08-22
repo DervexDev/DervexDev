@@ -18,6 +18,7 @@
 
 @font-face {
 	font-family: 'Blanka';
+	font-display: swap;
 	src: url('../public/blanka.otf');
 }
 

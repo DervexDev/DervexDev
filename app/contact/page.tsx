@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 import { ButtonCSS } from '@/components/button'
 import Container from '@/components/container'
+import Tooltip from '@/components/tooltip'
 import Button from '@/components/button'
 
 interface Contact {
@@ -63,25 +64,38 @@ export default function Home() {
 							setCopied(false)
 						}, 1000);
 					}}>
-						<div className='absolute' style={{opacity: !copied ? 100 : 0}}>
+						<div className='absolute duration-200 transition-opacity' style={{opacity: !copied ? 100 : 0}}>
 							<LiaCopy/>
 						</div>
 
-						<div style={{opacity: copied ? 100 : 0}}>
+						<div className='duration-200 transition-opacity' style={{opacity: copied ? 100 : 0}}>
 							<LiaCheckSolid/>
 						</div>
+
+						<Tooltip>
+							<p style={{display: !copied ? 'block' : 'none'}}>Copy username</p>
+							<p style={{display: copied ? 'block' : 'none'}}>Copied!</p>
+						</Tooltip>
 					</Button>
 				)
 			case 'Mail':
 				return (
 					<a className={ButtonCSS + 'min-w-[78px] h-full text-4xl border-l-2'} href={link}>
 						<LiaExternalLinkAltSolid/>
+
+						<Tooltip>
+							Send email
+						</Tooltip>
 					</a>
 				)
 			default:
 				return (
-					<Button className='min-w-[78px] h-full text-4xl' borders='l' link={link!}>
+					<Button className='min-w-[78px] h-full text-4xl' borders='l' link={link}>
 						<LiaExternalLinkAltSolid/>
+
+						<Tooltip>
+							Open {name}
+						</Tooltip>
 					</Button>
 				)
 		}

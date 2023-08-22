@@ -1,6 +1,7 @@
 import { SiLua, SiTypescript, SiJavascript, SiCplusplus, SiTailwindcss, SiNodedotjs, SiReact, SiNextdotjs, SiGit, SiVisualstudiocode, SiRobloxstudio, SiRoblox, SiGithub, SiMicrosoft } from 'react-icons/si'
 import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { BiError } from 'react-icons/bi'
+
 import Container from '@/components/container'
 import Tooltip from '@/components/tooltip'
 import Button from '@/components/button'
@@ -140,14 +141,14 @@ export default function Page() {
 
 	return (
 		<div className='w-full'>
-			<p className='text-center text-xs opacity-50 pt-[10px] -mb-[10px] sm:hidden'>Rotate your device to see more details</p>
+			<p className='text-center text-xs opacity-60 pt-[10px] -mb-[10px] sm:hidden'>Rotate your device to see more details</p>
 			<div className='flex flex-wrap justify-center'>
 				{projects.map((project, index) => {
 					return (
 						<Container key={index} className='w-[600px] m-[20px] self-center'>
 							<Container className='h-[78px] flex flex-row' borders='b'>
 								<Container className='min-w-[76px] h-full flex items-center justify-center' borders='r'>
-									<Image src={`./images/${project.icon}.png`} alt={project.icon} className='invert dark:invert-0' width={60} height={60} ></Image>
+									<Image src={`./images/${project.icon}.png`} alt={project.icon} className='invert dark:invert-0' width={60} height={60}/>
 								</Container>
 
 								<div className='relative w-full h-full flex items-center justify-center sm:block sm:pl-2 sm:pt-1'>

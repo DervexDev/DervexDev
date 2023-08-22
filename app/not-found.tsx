@@ -1,5 +1,6 @@
 import Container from '@/components/container'
 import Button from '@/components/button'
+import Image from 'next/image'
 
 export default function NotFoundPage() {
 	return (
@@ -9,7 +10,7 @@ export default function NotFoundPage() {
 				<p className='text-lg pb-1 flex items-center justify-center'>This page does not exist!</p>
 
 				<Container borders='tb'>
-					<img src='/raccoon.gif' alt='sad raccoon'/>
+					<Image src={'./raccoon.gif'} alt='raccoon' width={300} height={300}/>
 				</Container>
 
 				<Button link='/' borders=''>

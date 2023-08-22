@@ -5,12 +5,13 @@ interface Props {
 	className?: string
 	borders?: string
 	link?: string
+	label?: string
 	callback?: () => undefined
 }
 
 export const ButtonCSS = 'group bg-white dark:bg-black border-black dark:border-white hover:bg-black hover:dark:bg-white hover:text-white hover:dark:text-black duration-200 flex items-center justify-center '
 
-export default function Button({children, className, borders, link, callback}: Props) {
+export default function Button({children, className, borders, link, label, callback}: Props) {
 	let css = ButtonCSS
 
 	if (className) {
@@ -36,7 +37,7 @@ export default function Button({children, className, borders, link, callback}: P
 
 	if (link) {
 		return (
-			<Link className={css} href={link} onClick={callback}>
+			<Link aria-label={label} className={css} href={link} onClick={callback}>
 				{children}
 			</Link>
 		)

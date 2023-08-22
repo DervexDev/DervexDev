@@ -42,7 +42,7 @@ export default function HeaderButton({className, button, callback, borders, comp
 	
 	if (button.link) {
 		return (
-			<Button className={className} link={button.link} borders={borders} callback={callback}>
+			<Button className={className} link={button.link} label={button.icon} borders={borders} callback={callback}>
 				{button.icon ? iconButton(button.icon) : textButton(button.text!)}
 			</Button>
 		)

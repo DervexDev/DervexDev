@@ -27,13 +27,14 @@ export default function Home() {
 			<p className='text-[6vw] sm:text-[3vw] sm:-mt-[1vw] font-bold sm:font-normal'>and I’m a</p>
 
 			<p className='w-[95%] sm:w-[65%] pb-[30px] sm:pb-[20px]'>
-				Software engineer, UI/UX & graphic designer, 3D artis, music producer based in Poland with
+				Software engineer, UI/UX & graphic designer, 3D artist, music producer based in Poland with
 				experience in game development, tool, web app programming and all major Adobe products.
 			</p>
 
 			<div className='flex justify-center sm:justify-normal'>
 				<Button className='w-[180px] h-[50px]' link='about'>
 					READ MORE
+					<span className='opacity-0 -ml-12'>ABOUT</span>
 				</Button>
 			</div>
 		</div>
