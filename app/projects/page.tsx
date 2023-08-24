@@ -1,4 +1,9 @@
-import { SiLua, SiTypescript, SiJavascript, SiCplusplus, SiTailwindcss, SiNodedotjs, SiReact, SiNextdotjs, SiGit, SiVisualstudiocode, SiRobloxstudio, SiRoblox, SiGithub, SiMicrosoft } from 'react-icons/si'
+import {
+	SiLua, SiTypescript, SiJavascript, SiCplusplus, SiSwift, SiTailwindcss, SiNodedotjs, SiDocker,
+	SiReact, SiNextdotjs, SiVapor, SiSpotify,
+	SiGit, SiVisualstudiocode, SiXcode, SiRobloxstudio, SiRoblox, SiGithub, SiMicrosoft
+} from 'react-icons/si'
+
 import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { BiError } from 'react-icons/bi'
 
@@ -12,30 +17,38 @@ interface Project {
 	technologies: Array<string>
 	time: string
 	icon: string
-	desc: string
+	desc: string | JSX.Element
 	links: Array<string>
 }
 
 const projects: Array<Project> = [
 	{
-		name: 'This page',
-		technologies: ['ts', 'tailwind', 'react', 'next', 'node'],
-		time: 'August 2023',
-		icon: 'dervex',
-		desc: 'Well, every developer needs their own site, right? So here is mine! Built with React and Tailwind CSS, written in TypeScript, using Next.js framework. Priorates were monochrome color scheme and simplicity. Those mysterious squares close to the GitHub logo are my contribution this year. Try resizing the window to see some magic happen!',
-		links: ['https://github.com/DervexHero/DervexHero', 'https://dervex.dev/']
-	},
-	{
 		name: 'Argon',
-		technologies: ['js', 'lua', 'cpp', 'node', 'vs', 'roblox', 'git'],
+		technologies: ['js', 'lua', 'cpp', 'node', 'vsc', 'roblox', 'git'],
 		time: 'October 2022 - now',
 		icon: 'argon',
 		desc: 'Visual Studio Code extension and Roblox plugin. Argon allows for two-way sync of code or any instance between game engine and code editor. It’s very simple to use so it’s accessible even for beginners and comes with many useful built-in tools. It will fit everyone’s needs as it’s highly customizable.',
 		links: ['https://github.com/DervexHero/Argon', 'https://marketplace.visualstudio.com/items?itemName=Dervex.argon', 'https://create.roblox.com/marketplace/asset/11263738833/', 'https://devforum.roblox.com/t/2021776', 'https://argonstatsapi.web.app/']
 	},
 	{
+		name: 'Spotify SA',
+		technologies: ['swift', 'docker', 'vapor', 'xcode', 'spotify'],
+		time: 'August 2023',
+		icon: 'spotifySpatialAudio',
+		desc: <>Spotify Spatial Audio is simple macOS app that takes advantage of Spotify’s web API to make use of spatial audio on your <a href='https://support.apple.com/en-us/HT211775#:~:text=Make%20sure%20that%20you%27re%20wearing%20your-,AirPods%20Pro%20(1st%20or%C2%A02nd%20generation)%2C%C2%A0AirPods%20Max%2C%20AirPods%20(3rd%20generation)%2C%20Beats%20Fit%20Pro%2C%C2%A0or%20Beats%20Studio%20Pro,-%2C%C2%A0and%20that%20they%27re%20connected%20to%20your%20Mac' className='underline hover:no-underline'>supported</a> AirPods possible directly from the Spotify app. Currently spatial audio on macOS is only supported by Safari thus SSA simply creates new hidden window and switches playback to web player.</>,
+		links: ['https://github.com/DervexHero/SpotifySpatialAudio']
+	},
+	{
+		name: 'This page',
+		technologies: ['ts', 'tailwind', 'react', 'next', 'node'],
+		time: 'August 2023',
+		icon: 'dervex',
+		desc: 'Well, every developer needs their own site, right? So here is mine! As you can see priorates were monochrome color scheme and simplicity. Those mysterious squares close to the GitHub logo are my contribution this year. Try resizing the window to see some magic happen! Also, this page has 100% score in every Google Lighthouse category.',
+		links: ['https://github.com/DervexHero/DervexHero', 'https://dervex.dev/']
+	},
+	{
 		name: 'Universal Comments',
-		technologies: ['ts', 'vs'],
+		technologies: ['ts', 'vsc'],
 		time: 'January 2023',
 		icon: 'universalComments',
 		desc: 'Simple Visual Studio Code extension that allows you to use same comment characters in every major language. It also allows to customize your experience by auto closing comment block or by adding spaces automatically.',
@@ -63,6 +76,10 @@ export default function Page() {
 					return <div key={index} className='pl-2'><SiJavascript/></div>
 				case 'cpp':
 					return <div key={index} className='pl-2'><SiCplusplus/></div>
+				case 'swift':
+					return <div key={index} className='pl-2'><SiSwift/></div>
+				case 'docker':
+					return <div key={index} className='pl-2'><SiDocker/></div>
 				case 'tailwind':
 					return <div key={index} className='pl-2'><SiTailwindcss/></div>
 				case 'node':
@@ -71,10 +88,16 @@ export default function Page() {
 					return <div key={index} className='pl-2'><SiReact/></div>
 				case 'next':
 					return <div key={index} className='pl-2'><SiNextdotjs/></div>
+				case 'vapor':
+					return <div key={index} className='pl-2'><SiVapor/></div>
+				case 'spotify':
+					return <div key={index} className='pl-2'><SiSpotify/></div>
 				case 'git':
 					return <div key={index} className='pl-2'><SiGit/></div>
-				case 'vs':
+				case 'vsc':
 					return <div key={index} className='pl-2'><SiVisualstudiocode/></div>
+				case 'xcode':
+					return <div key={index} className='pl-2'><SiXcode/></div>
 				case 'roblox':
 					return <div key={index} className='pl-2'><SiRobloxstudio/></div>
 				default:

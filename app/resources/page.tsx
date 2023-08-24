@@ -30,7 +30,7 @@ const resources: Array<Resource> = [
 		desc: <>Implementation of over 20 sorting algorithms in Lua and Luau. All algorithms have been ported from Python which can be found on <a href='https://www.geeksforgeeks.org/sorting-algorithms/' className='underline hover:no-underline'>GeeksforGeeks</a> site. Every file is ready to use module that can be imported.</>,
 		links: ['https://github.com/DervexHero/LuaSortingAlgorithms'],
 		icon: <SiLua/>
-	}
+	},
 ]
 
 export default function Page() {
