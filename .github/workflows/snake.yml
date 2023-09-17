@@ -1,4 +1,4 @@
-name: contribution-snake-build
+name: contribution-snake
 
 on:
   schedule:
