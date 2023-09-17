@@ -29,7 +29,7 @@ function getDummyData(length?: number): Array<number> {
 
 	for (let i = 0; i < length; i++) {
 		data.push(Math.random())	
-	}	
+	}
 
 	return data
 }
@@ -68,7 +68,9 @@ export async function fetchContributions(mobile?: boolean): Promise<Array<number
 			query: QUERY,
 			variables: VARIABLES
 		}),
-		cache: 'no-cache'
+		next: {
+			revalidate: 600
+		}
 	}).catch(() => {
 		return null
 	})
