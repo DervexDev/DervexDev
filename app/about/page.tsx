@@ -73,7 +73,7 @@ const languageSkills: Array<Skill> = [
 	}
 ]
 
-export default function Home() {  
+export default function About() {  
 	function graphs(skills: Array<Skill>) {
 		return skills.map((skill, index) => {
 			return (

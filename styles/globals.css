@@ -21,12 +21,3 @@
 	font-display: swap;
 	src: url('../public/blanka.otf');
 }
-
-main::-webkit-scrollbar {
-	display: none;
-}
-  
-main {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}

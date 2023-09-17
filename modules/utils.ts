@@ -13,3 +13,7 @@ export function countKeys(array: Array<any>, key: string): number {
 
 	return found
 }
+
+export function delay(ms?: number) {
+    return new Promise(resolve => setTimeout(resolve, ms || 0))
+}

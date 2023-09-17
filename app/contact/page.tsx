@@ -1,6 +1,6 @@
 'use client'
 
-import { LiaCopy, LiaCheckSolid, LiaExternalLinkAltSolid } from 'react-icons/lia'
+import { LiaCopy, LiaCheckSolid, LiaPenSolid, LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { SiDiscord, SiTwitter, SiRobloxstudio } from 'react-icons/si'
 import { HiMail } from 'react-icons/hi'
 import { useState } from 'react'
@@ -31,7 +31,7 @@ const contacts: Array<Contact> = [
 		icon: <SiTwitter/>
 	},
 	{
-		name: 'Mail',
+		name: 'Email',
 		desc: 'For urgent questions contact with me by e-mail',
 		link: 'mailto:contact@dervex.dev',
 		icon: <HiMail/>
@@ -44,7 +44,15 @@ const contacts: Array<Contact> = [
 	},
 ]
 
-export default function Home() {
+function copyToClipboard(text: string) {
+	if ('clipboard' in navigator) {
+		navigator.clipboard.writeText(text)
+	} else {
+		document.execCommand('copy', true, text)
+	}
+}
+
+export default function Contact() {
 	const [copied, setCopied] = useState(false)
 
 	function button(name: string, link?: string) {
@@ -52,11 +60,7 @@ export default function Home() {
 			case 'Discord':
 				return (
 					<Button className='min-w-[78px] h-full text-4xl' borders='l' callback={() => {
-						if ('clipboard' in navigator) {
-							navigator.clipboard.writeText('dervexhero')
-						} else {
-							document.execCommand('copy', true, 'dervexhero')
-						}
+						copyToClipboard('dervexhero')
 
 						setCopied(true)
 
@@ -78,13 +82,15 @@ export default function Home() {
 						</Tooltip>
 					</Button>
 				)
-			case 'Mail':
+			case 'Email':
 				return (
-					<a className={ButtonCSS + 'min-w-[78px] h-full text-4xl border-l-2'} href={link}>
-						<LiaExternalLinkAltSolid/>
+					<a className={ButtonCSS + 'min-w-[78px] h-full text-4xl border-l-2'} href={link} onClick={() => {
+						copyToClipboard(link!.replace('mailto:', ''))
+					}}>
+						<LiaPenSolid/>
 
 						<Tooltip>
-							Send email
+							Write email
 						</Tooltip>
 					</a>
 				)
@@ -102,12 +108,12 @@ export default function Home() {
 	}
 
 	return (
-		<div className='w-[100%] xl:w-[75%] flex flex-wrap justify-center'>
+		<div className='w-full xl:w-3/4 flex flex-wrap justify-center'>
 			{contacts.map((contact, index) => {
 				return (
 					<Container key={index} className='w-[350px] h-[160px] md:w-[400px] m-[20px]'>
 						<Container className='h-1/2 flex flex-row' borders='b'>
-							<Container className={`min-w-[76px] h-full text-${contact.name != 'Mail' ? 3 : 4}xl flex items-center justify-center`} borders='r'>
+							<Container className={`min-w-[76px] h-full text-${contact.name != 'Email' ? 3 : 4}xl flex items-center justify-center`} borders='r'>
 								{contact.icon}
 							</Container>
 

@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { useCollapse } from 'react-collapsed'
+
 import { clamp, countKeys } from '@/modules/utils'
 import { getContributions } from '@/modules/github'
-import { dervex } from '@/modules/ascii'
+import { drvx } from '@/modules/ascii'
+
 import HeaderButton, { HeaderButtonType } from './headerButton'
 import Container from './container'
 import Button from './button'
@@ -132,7 +134,7 @@ export default function Header () {
 									}}/>
 								})}
 
-								<div className='h-[76px] grid grid-rows-5 grid-flow-col content-start overflow-hidden bg-white dark:bg-black'>
+								<div className='mobileGithubContributions h-[76px] grid grid-rows-5 grid-flow-col content-start overflow-hidden bg-white dark:bg-black'>
 									{contributions.map((contribution, index) => {
 										return <div key={index} className='bg-black w-[15.2px] h-full dark:bg-white aspect-square' style={{opacity: contribution}}/>
 									})}
@@ -174,7 +176,7 @@ export default function Header () {
 
 	if (typeof window !== 'undefined') {
 		console.clear()
-		console.log(dervex)
+		console.log(drvx)
 	}
 
 	return (

@@ -3,13 +3,13 @@ import {
 	SiReact, SiNextdotjs, SiVapor, SiSpotify,
 	SiGit, SiVisualstudiocode, SiXcode, SiRobloxstudio, SiRoblox, SiGithub, SiMicrosoft
 } from 'react-icons/si'
-
 import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { BiError } from 'react-icons/bi'
 
 import Container from '@/components/container'
 import Tooltip from '@/components/tooltip'
 import Button from '@/components/button'
+
 import Image from 'next/image'
 
 interface Project {
@@ -64,7 +64,7 @@ const projects: Array<Project> = [
 	},
 ]
 
-export default function Page() {
+export default function Projects() {
 	function technologies(technologies: Array<string>) {
 		return technologies.map((technology, index) => {
 			switch (technology) {

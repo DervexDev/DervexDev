@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+
 import type { Metadata } from 'next'
 import { Roboto_Mono } from 'next/font/google'
 
@@ -9,11 +10,11 @@ import Footer from '@/components/footer'
 const ROBOTO_MONO = Roboto_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'DRVX | Dervex',
-	description: 'DRVX aka Dervex aka DervexHero official website'
+	title: 'Dervex | Everything Dev',
+	description: 'Game Developer, Software Engineer, UI/UX & Graphic Designer, 3D Artist and Music Producer also known as DervexHero or DRVX'
 }
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function Root({children}: {children: React.ReactNode}) {
 	return (
 		<html lang='en'>
 			<head>

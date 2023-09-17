@@ -24,11 +24,11 @@ export default function Home() {
 				}}/>
 			</div>
 
-			<p className='text-[20px] sm:text-[30px] lg:text-[40px] xl:text-[50px] font-bold sm:font-normal'>and I’m a</p>
+			<p className='text-[20px] sm:text-[30px] lg:text-[40px] xl:text-[50px] font-bold sm:font-normal'>and I’m</p>
 
 			<p className='w-[95%] sm:w-[85%] lg:w-[75%] xl:w-[65%] pb-[20px]'>
-				Software engineer, UI/UX & graphic designer, 3D artist, music producer based in Poland with
-				experience in game development, tool, web app programming and all major Adobe products.
+				Game Developer, Software Engineer, UI/UX & Graphic Designer, 3D Artist and Music Producer
+				based in Poland that loves to experiment with unknown and desires to learn more and more.
 			</p>
 
 			<div className='flex justify-center sm:justify-normal'>

@@ -1,4 +1,3 @@
-import { getDummyData } from './dummyData'
 import { clamp } from './utils'
 
 const TOKEN = process.env.GITHUB_TOKEN
@@ -22,6 +21,18 @@ const VARIABLES = `
 {
 	"userName": "DervexHero"
 }`
+
+function getDummyData(length?: number): Array<number> {
+	length = length || 360
+
+	const data: Array<number> = []
+
+	for (let i = 0; i < length; i++) {
+		data.push(Math.random())	
+	}	
+
+	return data
+}
 
 function getData(mobile?: boolean, data?: Array<number>): Array<number> {
 	if (data) {
@@ -57,9 +68,7 @@ export async function fetchContributions(mobile?: boolean): Promise<Array<number
 			query: QUERY,
 			variables: VARIABLES
 		}),
-		next: {
-			revalidate: 300
-		}
+		cache: 'no-cache'
 	}).catch(() => {
 		return null
 	})

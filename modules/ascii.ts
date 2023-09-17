@@ -1,4 +1,4 @@
-export const dervex = `
+export const drvx = `
     ____  ____ _    ___  __
    / __ \\/ __ \\ |  / / |/ /
   / / / / /_/ / | / /|   / 

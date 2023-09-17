@@ -1,5 +1,6 @@
 import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { SiLua, SiGithub } from 'react-icons/si'
+
 import { Wally } from '@/components/icons'
 import Container from '@/components/container'
 import Tooltip from '@/components/tooltip'
@@ -33,7 +34,7 @@ const resources: Array<Resource> = [
 	},
 ]
 
-export default function Page() {
+export default function Resources() {
 	function buttons(links: Array<string>) {
 		return links.map((link, index) => {
 			if (link.includes('github')) {

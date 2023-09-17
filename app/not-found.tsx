@@ -1,8 +1,9 @@
 import Container from '@/components/container'
 import Button from '@/components/button'
+
 import Image from 'next/image'
 
-export default function NotFoundPage() {
+export default function NotFound() {
 	return (
 		<Container className='w-[300px]'>
 			<p className='text-3xl pt-1 font-bold flex items-center justify-center'>ERROR 404</p>
