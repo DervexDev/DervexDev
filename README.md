@@ -9,6 +9,8 @@
 			<img src='https://dervex-readme-stats.vercel.app/api?username=DervexDev' width='49%'/>
 		</picture>
 	</div>
+</a>
+<a href="https://wakatime.com/@Dervex">
 	<div align='center'>
 		<picture>
 			<source media='(prefers-color-scheme: light)' srcset='https://dervex-readme-stats.vercel.app/api/wakatime?username=Dervex&theme=light'/>
